@@ -32,18 +32,14 @@ Simply think, what tasks can/do we do to directly improve quality of the product
 \subsection{Developer interest and productivity}
 We see developer interest and productivity as our main factor of influence over the quality of the device. The development of the device is done by a small team of 6 members, which means that all members have extremely high influence over the final product. The performance of our team is directly relative to the productivity of each member. It is therefore very important that each member feels connected with the product, its purpose and eager to work with it. 
 
-Therefore we 
-
-
-Write about how the fact that we have two identities of the project (formal security device vs toy) increases product quality, how developer interest increases quality and why we prioritize developers over product.
-
+Therefore we \note{Write about how the fact that we have two identities of the project (formal security device vs toy) increases product quality, how developer interest increases quality and why we prioritize developers over product}
 
 \section{Code quality}
 
 \subsection{Modularity and Object oriented design}
 By focusing on modularity, that is, when logically separable parts of the product is also encapsulated and separated in code. We directly increase the maintainability and flexibility of our code. It gets easier to overview as well as understand and edit. In other languages, encapsulating via classes is the only way to go. However, in python, only separating using multiple files is enough, and this will be our main goal. To try and separate code in as many files possible.
 
-A good object oriented design maximises cohesion and reduces dependency. Minimal dependency reduces costs of late bug detection.
+A good object oriented design maximises cohesion and minimizes dependency. Minimal dependency reduces costs of late bug detection.
 
 \subsection{Coding standards}
 By establishing a strict coding standard we make sure that our codebase is easily understood and easily maintained. Our coding standard includes rules such as, name variables, classes and objects according to what they are and 
@@ -60,9 +56,7 @@ By working in scrum, all responsibility, including quality assurance's is equall
 \section{Standard practices}
 \section{Faults management plan}
 \section{Correction costs and early detection}
-Although a good object oriented design m dependency, all software will contain parts that are transitively dependant on others.
-All software is transitively dependent on 
-
+Although a good object oriented design minimizes dependency, all software will contain parts that are transitively dependant on others. This often means that if a bug is created but not discovered, there are risks that continued work of the software becomes dependant on the bug. Hence, the later a bug is discovered, the more dependency and the higher cost.
 
 \subsection{Testing}
 \subsection{Problem reporting and corrective action}
@@ -74,8 +68,6 @@ Adverse event
 \section{}
 
 The device function should be precise with an error margin of +-5 cm from the desired target area. 
-
-
 
 \subsection{Safety}
 
