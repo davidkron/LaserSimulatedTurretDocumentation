@@ -71,7 +71,6 @@ Together with pivotal we can assure that no one works on the device without quic
 Thereby all work should at least have some base for documentation as-well as a time and date.
 This also helps constrain scope.
 
-
 \section{Design}
 
 \subsection{Modularity and Object oriented design}
@@ -109,13 +108,14 @@ For configuration, only editing a config file found on the sd-card is required.
 Requirements verification and validation will be done repeatedly every other week with the customer involved.
 Requirements validation is customer based, meaning that all information used to state validity should come directly from the customer, rather than any written specification.
 
+\section{Standard practices}
 \section{Faults management plan}
-\subsection{Correction costs and early detection}	
-Although a good object oriented design minimizes dependency, all software will end up containing parts that are transitively dependant on others.
+\section{Correction costs and early detection}
+Although a good object oriented design minimizes dependency, all software will contain parts that are transitively dependant on others.
 This often means that if a bug is created but not discovered, there are risks that continued work of the software becomes dependant on the bug.
 Hence, the later a bug is discovered, the more dependency and the higher cost for change.
-
 \subsection{Testing}
+
 To discover bugs as fast as possible, and reduce the chance of bug dependency, unit tests will be used.
 Unit tests provide automatic verification of functionality as well as announce breakage of dependable code.
 
