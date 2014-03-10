@@ -11,25 +11,17 @@
 
 \maketitle
 
-\section{Todo}
+\section{Purpose}
+The purpose of this document is to thoroughly describe all activities and factors involving the improvement of or somehow impacting the quality of the developed device.
+This document also states the quality related requirements used for validating the quality of the device.
 
+\tableofcontents 
 
-Copy paste these to a valid section, rewrite a bit and if not complete add a slash todo \\
-http://latexforhumans.wordpress.com/2009/03/13/todonotes/).\\If you dislike the document structure change it, David
-\\
-Simply think, what tasks can/do we do to directly improve quality of the product.
-Or, what are the factors that somehow influence the quality of the product.
-Everything is valid!!
-\begin{itemize}
-\item Add more todos, increase detail of todos
-\item How using pivotal improves document-ability and traceability etc.
-\item How using git improves x.
-\item How using scrum improves y (see scrum pm).
-\item How using a (frequent) demo based development improves z (right prioritization of functionality etc.) (See scrum pm)
-\item Unit tests!!!! A lot.
-\end{itemize}
+\clearpage
 
-%\tableofcontents 
+\section{References}
+For requirements not directly related to quality, see the SRS (Software Requirements Specification).
+The SRS contains a complete outline of requirements for generating backlog items to the development team Jensenligan.
 
 \section{Developer interest and Productivity}
 We see developer interest and productivity as our main factor influencing the quality of the device. 
@@ -66,7 +58,7 @@ This directly assists in reducing scope creep.
 \subsubsection{Pivotal}
 
 Pivotal is a collaborative task management tool.
-By using a task-management tool we can improve upon the documentability and traceability of our work.
+By using a task-management tool we can improve upon the document-ability and traceability of our work.
 Together with pivotal we can assure that no one works on the device without quickly stating what he or she will do first.
 Thereby all work should at least have some base for documentation as well as a time and date.
 This also helps constrain scope.
@@ -85,7 +77,7 @@ Minimal dependency reduces costs of late bug detection as well as increase exten
 Low coupling also enforces information hiding, which improves code readability and understandability.
 
 \section{Responsibilities}
-By working in scrum, all responsibility, including quality assurance, is spread equally over team members.
+By working in scrum, all responsibility, including responsibility over quality assurance, is equally spread over team members.
 It does lie in the responsibility of our product owners that the backlog stories they add and prioritize lie in the best interest of the customer.
 
 \section{Product Performance Management Plan}
@@ -107,10 +99,10 @@ For configuration, only editing a config file found on the SD-card is required.
 \section{Verification management plan}
 Requirements verification and validation will be done repeatedly every other week with the customer involved.
 Requirements validation is customer based, meaning that all information used to state validity should come directly from the customer, rather than any written specification.
+This ironically enough includes this specification.
 
-\section{Standard practices}
 \section{Faults management plan}
-\section{Correction costs and early detection}
+\subsection{Correction costs and early detection}
 Although a good object oriented design minimizes dependency, all software will contain parts that are transitively dependent on others.
 This often means that if a bug is created but not discovered, there are risks that continued work of the software becomes dependent on the bug.
 Hence, the later a bug is discovered, the more dependency and the higher cost for change.
@@ -118,14 +110,21 @@ Hence, the later a bug is discovered, the more dependency and the higher cost fo
 
 To discover bugs as fast as possible, and reduce the chance of bug dependency, unit tests will be used.
 Unit tests provide automatic verification of functionality as well as announce breakage of dependable code.
+Unit tests also helps alert developers of high cohesion and bad design practises when separable parts of the software can not be tested individually.
 
-\subsection{Problem reporting and corrective action}
-Bugreport/handling
+\subsubsection{User based testing and pre created tests}
+If a programmer writes a unit test to test a certain unit of the software after he has developed it, the test immediately gets very biased.
+The programmer writes the test with the idea to prove success, while tests should be written to find failures.
+Most certainly the programmer already knows what works and therefore provides very little attribution by writing the minimal case for which it does so. 
+If the programmer commits a unit or a change to it, and that unit is used somewhere, it is already implied by the commit that the unit works as currently used.
+Hence, it is important that testing is done by someone not a developer.
+An excellent choice for this is the customer.
+One may arguably state something so simple as; if the customer(s) thinks the software works, it works.
+By working iteratively, we ensure that the customer tests the product repeatedly throughout development.
+Despite that, it is unfortunately not possible nor practical to have the user create the unit tests.
+Therefore, the next best thing that can be done, is to have the developers write as many tests as possible in advance.
+This removes some (but not all) post development knowledge that can otherwise bias tests.
 
-
-\section{Risk management}
-Adverse event
-\section{}
 
 
 \end{document}
