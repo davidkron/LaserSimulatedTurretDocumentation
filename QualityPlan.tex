@@ -127,9 +127,12 @@ Despite that, it is unfortunately not possible nor practical to have the user cr
 Therefore, the next best thing that can be done, is to have the developers write as many tests as possible in advance.
 This removes some (but not all) post development knowledge that can otherwise bias tests.
 
-\section{Diagram and defect analysis assignment}
-The following chart represents a histogram of defect ages in days.
+\section{Metrics and defect analysis}
+We have analysed a huge set of defect data from the eclipse project.
+The following section discusses our foundings and how we relate them to our project.
+
 \subsection{Age of defects}
+The following chart represents a histogram of defect ages in days.
 \begin{figure}[h]
 \center
 \includegraphics[width=160mm]{defect_ages.png}
@@ -140,11 +143,12 @@ This shows that the most common ages lies inbetween 90 to 120.
 It is however important to note that defect ages doesn't directly relate to the time or effort spent on fixing bugs.
 It is only a metric showing the time between when bugs have been detected and solved.
 This does not imply that the bug has been worked on for so long, to retrieve this value one would have to take the difference from when a developer actually started working on fixing the bug.
+%Add the diagrams comparing months and defects resolved. Defects opened might be wrong.
 
 \subsection{Defects by component}
 The number of defects per component could be used to figure out how likely it is to get defects in the different components compared to the others.
 For instance the UI component quite handily has the largest number of found defects. It could be useful for figuring out where bug-fixing is most needed. But it could also mean that more testing is needed on the APT component.
-However, since it doesn't show the actual size of the components it isn't necessarily true for similar components in other projects.
+However, since it doesn't show the actual code-size or complexity of the components it isn't necessarily true for similar components in other projects.
 \begin{figure}[H]
 \center
 \includegraphics[width=100mm]{defects_by_component.png}
@@ -154,22 +158,24 @@ However, since it doesn't show the actual size of the components it isn't necess
 \subsection{Severe defects by component}
 The severe defects of the various components could help you figure out where they are most likely to happen.
 However like in the previous defects by component we do not know how large the various components are which makes it less useful for our own project unless we create a similar diagram of our own defects.
+
 \begin{figure}[H]
 \center
 \includegraphics[width=100mm]{severe_defects_per_component.png}
-\caption{Number of defects by component}
+\caption{Number of severe defects by component}
 \end{figure}
 
 %Compare the defects and severe defects per component "defect comparison.txt" in dropbox. Mention how it could be useful for our project.
 %Do the last part about other diagrams or information in the data that could be useful for our project.
-\subsection{Which months are most active and why?}
-The largest amount of defects were resolved in month 9 of 2011 but month 8 is not far behind. 
-Because Eclipse had a large release in the end of month 6 (they make the big releases around the same time every year)it makes sense that there would be a plenty of feedback after a large release.
-Also, defects are only handled for the first (around) two weeks each month based on the .csv file many of them could remain to be found after the fixes done during month 7.
-Eclipse also normally releases the first service release month 9 which means they probably work hard to get rid of as many problems as possible prior to that.
+\subsection{Monthly activity}
+The largest amount of defects were resolved in September 2011 but August is not far behind. 
+Oracle have their big releases of eclipse at the end of June and it makes sense that there would be a plenty of incoming feedback after these large releases.
+Also, based on the bug dataset, defects seem to only be handled for the first two weeks each month.
+Many of them could therefore remain after the fixes done during month July.
+
+They also normally releases the first service release during september which means they probably work hard to get rid of as many problems as possible prior to that.
 It is interesting however that prior to the second service release there is not an increase in resolved defects, but rather the other way around. The defects fixed here might be the ones that take longer time to get done.
 
-%Add the diagrams comparing months and defects resolved. Defects opened might be wrong.
 %\url{http://wiki.eclipse.org/Simultaneous_Release}
 
 \end{document}
