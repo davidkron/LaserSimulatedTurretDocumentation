@@ -175,7 +175,6 @@ On the other hand, while there are not that many defects in the text component a
 %Do the last part about other diagrams or information in the data that could be useful for our project.
 
 \subsection{Monthly activity}
-
 This diagram shows the number of bugs being resolved per month.
 We marked the big releases (June) as yellow and the service releases green.
 \begin{figure}[H]
@@ -183,14 +182,34 @@ We marked the big releases (June) as yellow and the service releases green.
 \includegraphics[width=150mm]{defects_resolved.png}
 \caption{Number of bugs resolved per month}
 \end{figure}
-
 Here, the largest amount of defects were resolved in September 2011, alltough August is not far behind. 
 Oracle have their big releases of eclipse at the end of June and it makes sense that there would be a plenty of incoming feedback after these large releases.
 Also, based on the bug dataset, defects seem to only be handled for the first two weeks each month.
-Many of them could therefore remain after the fixes done during month July.
+Many of them could therefore remain after the fixes done during July.
 
-They also normally releases the first service release during september which means they probably work hard to get rid of as many problems as possible prior to that.
-It is interesting however that prior to the second service release there is not an increase in resolved defects, but rather the other way around. The defects fixed here might be the ones that take longer time to get done.
+They also release their first service release at the end of september which means they probably work hard to get rid of as many problems as possible prior to that.%Then how about February?
+It is interesting however that prior to the second service release there is not an increase in resolved defects, but rather the other way around. 
+The defects fixed here might have taken more time.
+
+Now, if we instead take a look at the number of opened bugs per month, we see a clearer pattern.
+\begin{figure}[H]
+\center
+\includegraphics[width=150mm]{defects_opened.png}
+\caption{Number of bugs opened per month}
+\end{figure}
+Not only does it conclude with previous points (there are generally less bugs opened after service releases than before), but this diagram implies a slow decrease of the dataset as a whole.
+This implies that eclipse has gotten more and more stabler over time.
+Most likely a lot of more unit tests have been written with increased code and use case-coverage to make the occourance of completely new bugs less likely.
+By automating testing, bugs can instead be found before commits and often even solved, which makes filing them redundant.
+
+Then comes the question about the first 3 months and their oddity.
+During the first months, there where very few bugs being filed and none of them resolved.
+For this we see two possibilities.
+First is the fact that the bug data only goes as far back as to when the eclipse project started to use bugzilla.
+Hence, it may have taken a while to get people into actually using the system, the first filed bugs might even have been for testing or as examples for employees.
+There is also the chance, that a core change was done prior to January that produced a lot of transitive chain reactions of bugs.
+There where no big final release prior to January, however the change could either have been included in some beta version or all bugs where filed from developers. 
+The change could also have been on some external system having large impact on eclipse.
 
 %\url{http://wiki.eclipse.org/Simultaneous_Release}
 
