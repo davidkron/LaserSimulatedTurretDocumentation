@@ -114,7 +114,7 @@ To discover bugs as fast as possible, and reduce the chance of bug dependency, u
 Unit tests provide automatic verification of functionality as well as announce breakage of dependable code.
 Unit tests also helps alert developers of high cohesion and bad design practises when separable parts of the software can not be tested individually.
 
-\subsubsection{User based testing and pre created tests}
+\subsubsection{User based testing and pre created tests}\label{user based testing}
 If a programmer writes a unit test to test a certain unit of the software after he has developed it, the test immediately gets very biased.
 The programmer writes the test with the idea to prove success, while tests should be written to find failures.
 Most certainly the programmer already knows what works and therefore provides very little attribution by writing the minimal case for which it does so. 
@@ -210,6 +210,9 @@ Hence, it may have taken a while to get people into actually using the system, t
 There is also the chance, that a core change was done prior to January that produced a lot of transitive chain reactions of bugs.
 There where no big final release prior to January, however the change could either have been included in some beta version or all bugs where filed from developers. 
 The change could also have been on some external system having large impact on eclipse.
+
+One might question, if its really a good thing that less bugs are being discovered.
+For eclipse however, the users have been large contributors to bug discovering, and as previously stated in \ref{user based testing} "If the customer(s) thinks the software works, it works.".
 
 %\url{http://wiki.eclipse.org/Simultaneous_Release}
 
