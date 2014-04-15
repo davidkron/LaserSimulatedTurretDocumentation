@@ -111,7 +111,7 @@ Hence, the later a bug is discovered, the more dependency and the higher cost fo
 
 To discover bugs as fast as possible, and reduce the chance of bug dependency, unit tests will be used.
 Unit tests provide automatic verification of functionality as well as announce breakage of dependable code.
-Unit tests also helps alert developers of high coupling and bad design practises when separable parts of the software can not be tested individually.
+Unit tests also helps alert developers of high coupling and bad design practises when separable parts of the software cannot be tested individually.
 
 \subsubsection{User based testing and pre created tests}\label{user based testing}
 If a programmer writes a unit test to test a certain unit of the software after he has developed it, the test immediately gets very biased.
@@ -120,15 +120,15 @@ Most certainly the programmer already knows what works and therefore provides ve
 If the programmer commits a unit or a change to it, and that unit is used somewhere, it is already implied by the commit that the unit works as currently used.
 Hence, it is important that testing is done by someone not a developer.
 An excellent choice for this is the customer.
-One may arguably state something so simple as; if the customer(s) thinks the software works, it works.
+One may arguably state something as simple as; if the customer(s) thinks the software works, it works.
 By working iteratively, we ensure that the customer tests the product repeatedly throughout development.
-Despite that, it is unfortunately not possible nor practical to have the user create the unit tests.
-Therefore, the next best thing that can be done, is to have the developers write as many tests as possible in advance.
+Despite that it is unfortunately neither possible nor practical to have the user create the unit tests.
+Therefore, the next best thing that can be done is to have the developers write as many tests as possible in advance.
 This removes some (but not all) post development knowledge that can otherwise bias tests.
 
 \section{Metrics and defect analysis}
 We have analysed a huge set of defect data from the eclipse project.
-The following section discusses our foundings and how we relate them to our project.
+The following section discusses our findings and how we relate them to our project.
 
 \subsection{Age of defects}
 The following chart represents a histogram of defect ages in days.
@@ -138,7 +138,7 @@ The following chart represents a histogram of defect ages in days.
 \caption{Age of defects}
 \end{figure}
 
-This shows that the most common ages lies inbetween 90 to 120.
+This shows that the most common ages lays inbetween 90 to 120.
 It is however important to note that defect ages doesn't directly relate to the time or effort spent on fixing bugs.
 It is only a metric showing the time between when bugs have been detected and solved.
 This does not imply that the bug has been worked on for so long, to retrieve this value one would have to take the difference from when a developer actually started working on fixing the bug.
@@ -156,8 +156,7 @@ However, since it doesn't show the actual code-size or complexity of the compone
 
 \subsection{Severe defects by component}
 The severe defects of the various components could help you figure out where they are most likely to happen.
-However like in the previous defects by component we do not know how large the various components are which makes it less useful for our own project.
-Unless of course we create a similar diagram of our own defects.
+However like in the previous defects by component we do not know how large the various components are which makes it less useful for our own project, unless we were to create a similar diagram of our own defects.
 
 \begin{figure}[H]
 \center
@@ -166,7 +165,7 @@ Unless of course we create a similar diagram of our own defects.
 \end{figure}
 
 Something we can get out of the two diagrams however, is the number of severe defects compared to the number of defects.
-Which gives an idea of where they tend to show up.
+This gives an idea of where they tend to show up.
 And while it probably varies depending on project it could be a useful indicator on where to be a little extra careful.
 For instance while the UI component has a lot of defects, it is only a small percentage (5.4\%) of these that are actually severe.
 On the other hand, while there are not that many defects in the text component almost 14\% of them are severe.
@@ -181,12 +180,12 @@ We marked the big releases (June) as yellow and the service releases green.
 \includegraphics[width=150mm]{defects_resolved.png}
 \caption{Number of bugs resolved per month}
 \end{figure}
-Here, the largest amount of defects were resolved in September 2011, alltough August is not far behind. 
+Here, the largest amount of defects was resolved in September 2011, although August is not far behind. 
 Oracle have their big releases of eclipse at the end of June and it makes sense that there would be a plenty of incoming feedback after these large releases.
 Also, based on the bug dataset, defects seem to only be handled for the first two weeks each month.
 Many of them could therefore remain after the fixes done during July.
 
-They also release their first service release at the end of september which means they probably work hard to get rid of as many problems as possible prior to that.
+They also release their first service release at the end of September which means they probably work hard to get rid of as many problems as possible prior to that.
 It is interesting however that prior to the second service release there is not an increase in resolved defects, but rather the other way around. 
 The defects fixed here might have taken more time.
 
@@ -197,21 +196,21 @@ Now, if we instead take a look at the number of opened bugs per month, we see a 
 \caption{Number of bugs opened per month}
 \end{figure}
 Not only does it conclude with previous points (there are generally less bugs opened after service releases than before), but this diagram implies a slow decrease of the dataset as a whole.
-This implies that eclipse has gotten more and more stabler over time.
-Most likely a lot of more unit tests have been written with increased code and use case-coverage to make the occourance of completely new bugs less likely.
+This implies that eclipse has gotten more and more stable over time.
+Most likely a lot of more unit tests have been written with increased code and use case-coverage to make the occurrence of completely new bugs less likely.
 By automating testing, bugs can instead be found before commits and often even solved, which makes filing them redundant.
 
-Then comes the question about the first 3 months and their oddity.
-During the first months, there where very few bugs being filed and none of them resolved.
+Next is the question about the first 3 months and their oddity.
+During the first months, there were very few bugs being filed and none of them resolved.
 For this we see two possibilities.
 First is the fact that the bug data only goes as far back as to when the eclipse project started to use bugzilla.
-Hence, it may have taken a while to get people into actually using the system, the first filed bugs might even have been for testing or as examples for employees.
-There is also the chance, that a core change was done prior to January that produced a lot of transitive chain reactions of bugs.
-There where no big final release prior to January, however the change could either have been included in some beta version or all bugs where filed from developers. 
+Hence, it may have taken a while to get people into actually using the system; the first filed bugs might even have been for testing or as examples for employees.
+There is also the chance that a core change was done prior to January that produced a lot of transitive chain reactions of bugs.
+There were no big final release prior to January, however the change could either have been included in some beta version or all bugs where filed from developers. 
 The change could also have been on some external system having large impact on eclipse.
 
-One might question, if its really a good thing that less bugs are being discovered.
-For eclipse however, the users have been large contributors to bug discovering, and as previously stated in \ref{user based testing} "If the customer(s) thinks the software works, it works.".
+One might question if it's really a good thing that less bugs are being discovered.
+For eclipse however, the users have been large contributors to bug discovering, and as previously stated in \ref{user based testing} "If the customer(s) thinks the software works, it works.”
 
 %\url{http://wiki.eclipse.org/Simultaneous_Release}
 
