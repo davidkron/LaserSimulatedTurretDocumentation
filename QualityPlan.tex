@@ -3,6 +3,7 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{url}
 
 \title{Quality Management Plan}
 \author{Jensenligan}
@@ -73,7 +74,7 @@ In other languages, encapsulating via classes is the only way to go.
 In python however, only separating using multiple files is enough, and this will be our main goal.
 To try to separate code in as many files possible.
 
-A good object-oriented design maximises cohesion and minimizes coupling and dependency.
+A good object-oriented design maximizes cohesion and minimizes coupling and dependency.
 Minimal dependency reduces costs of late bug detection as well as increase extensibility and modifiability.
 Low coupling also enforces information hiding, which improves code readability and understandability.
 
@@ -82,9 +83,9 @@ By working in scrum, all responsibility, including responsibility over quality a
 It does lie in the responsibility of our product owners that the backlog stories they add and prioritize lie in the best interest of the customer.
 
 \section{Product Performance Management Plan}
-Performance is in most cases indeterministic, hence, no optimisation shall be applied without profiling and testing. 
-All performance optimization are initially discarded in favour of productivity.
-This means the development team mainly shall favour python during the complete development time.
+Performance is in most cases indeterministic, hence, no optimization shall be applied without profiling and testing. 
+All performance optimization are initially discarded in favor of productivity.
+This means the development team mainly shall favor python during the complete development time.
 When, if cases arise that gives performance related issues, and if the product owner and or customer confirm these issues as important, only then are the team viable to rewrite specific parts of the product in a lower level language such as C/C++.
 These rewrites shall only be on parts shown as bottlenecks during profiling.
 
@@ -111,7 +112,7 @@ Hence, the later a bug is discovered, the more dependency and the higher cost fo
 
 To discover bugs as fast as possible, and reduce the chance of bug dependency, unit tests will be used.
 Unit tests provide automatic verification of functionality as well as announce breakage of dependable code.
-Unit tests also helps alert developers of high coupling and bad design practises when separable parts of the software cannot be tested individually.
+Unit tests also helps alert developers of high coupling and bad design practices when separable parts of the software cannot be tested individually.
 
 \subsubsection{User based testing and pre created tests}\label{user based testing}
 If a programmer writes a unit test to test a certain unit of the software after he has developed it, the test immediately gets very biased.
@@ -127,10 +128,12 @@ Therefore, the next best thing that can be done is to have the developers write 
 This removes some (but not all) post development knowledge that can otherwise bias tests.
 
 \section{Metrics and defect analysis}
-We have analysed a huge set of defect data from the eclipse project.
+
+\subsection{Eclipse data analysis}
+We have analyzed a huge set of defect data from the eclipse project.
 The following section discusses our findings and how we relate them to our project.
 
-\subsection{Age of defects}
+\subsubsection{Age of defects}
 The following chart represents a histogram of defect ages in days.
 \begin{figure}[h]
 \center
@@ -138,13 +141,13 @@ The following chart represents a histogram of defect ages in days.
 \caption{Age of defects}
 \end{figure}
 
-This shows that the most common ages lays inbetween 90 to 120.
+This shows that the most common ages lays in-between 90 to 120.
 It is however important to note that defect ages doesn't directly relate to the time or effort spent on fixing bugs.
 It is only a metric showing the time between when bugs have been detected and solved.
 This does not imply that the bug has been worked on for so long, to retrieve this value one would have to take the difference from when a developer actually started working on fixing the bug.
 %Add the diagrams comparing months and defects resolved. Defects opened might be wrong.
 
-\subsection{Defects by component}
+\subsubsection{Defects by component}
 The number of defects per component could be used to figure out how likely it is to get defects in the different components compared to the others.
 For instance the UI component quite handily has the largest number of found defects. It could be useful for figuring out where bug-fixing is most needed. But it could also mean that more testing is needed on the APT component.
 However, since it doesn't show the actual code-size or complexity of the components it isn't necessarily true for similar components in other projects.
@@ -154,7 +157,7 @@ However, since it doesn't show the actual code-size or complexity of the compone
 \caption{Number of defects by component}
 \end{figure}
 
-\subsection{Severe defects by component}
+\subsubsection{Severe defects by component}
 The severe defects of the various components could help you figure out where they are most likely to happen.
 However like in the previous defects by component we do not know how large the various components are which makes it less useful for our own project, unless we were to create a similar diagram of our own defects.
 
@@ -172,7 +175,7 @@ On the other hand, while there are not that many defects in the text component a
 %Compare the defects and severe defects per component "defect comparison.txt" in dropbox. Mention how it could be useful for our project.
 %Do the last part about other diagrams or information in the data that could be useful for our project.
 
-\subsection{Monthly activity}
+\subsubsection{Monthly activity}
 This diagram shows the number of bugs being resolved per month.
 We marked the big releases (June) as yellow and the service releases green.
 \begin{figure}[H]
@@ -206,11 +209,79 @@ For this we see two possibilities.
 First is the fact that the bug data only goes as far back as to when the eclipse project started to use bugzilla.
 Hence, it may have taken a while to get people into actually using the system; the first filed bugs might even have been for testing or as examples for employees.
 There is also the chance that a core change was done prior to January that produced a lot of transitive chain reactions of bugs.
-There were no big final release prior to January, however the change could either have been included in some beta version or all bugs where filed from developers. 
+There were no big final release prior to January, however the change could either have been included in some beta version or all bugs were filed from developers. 
 The change could also have been on some external system having large impact on eclipse.
 
 One might question if it's really a good thing that less bugs are being discovered.
-For eclipse however, the users have been large contributors to bug discovering, and as previously stated in \ref{user based testing} "If the customer(s) thinks the software works, it works.”
+For eclipse however, the users have been large contributors to bug discovering, and as previously stated in \ref{user based testing} "If the customer(s) thinks the software works, it works."
+
+\subsection{Metrics}
+Since we have been using pivotal tracker as a task management tool we were able to extract some relevant data from it.
+
+The following diagram, shows how many stories/tasks are related to each label.
+Where a label represent some categorisation of the task.
+\begin{figure}[H]
+\center
+\includegraphics{nStories.png}
+\caption{Number of stories per label}
+\end{figure}
+Here we already see quite clearly that the most worked areas are in construction and pi configuration.
+For a somewhat closer look, we can sum up the number of story points per story.
+\begin{figure}[H]
+\center
+\includegraphics{nPoints.png}
+\caption{Sum of story points per label}
+\end{figure}
+It is now visible that we planned for construction tasks to take a bit more time than others.
+But is this the real truth?
+Lets take a look at the actuall time spent, by using the excell command "NETWORKDAYS", and passing it the start date aswell as the accept date of each story, we get the actual workdays spent.
+\clearpage
+Here are the total workdays spent per label:
+
+\begin{figure}[H]
+\center
+\includegraphics{daysSpent.png}
+\caption{Total days spent per labell}
+\end{figure}
+
+According to the real facts, we have actually spent more time configuring the raspberry pi than doing physical constuction.
+We feel that this is a good reflection of our view of spent time.
+We have generally underestimated the time for almost every task, especially in terms of pi configuration and hardware.
+
+Since our story points each represent days, we can take the actuall days spent and divide it by the estimation to get a multiple of how much more time actually were spent in relation to the approximation. The resulting average underestimation was 459\% for "Pi configuration" and 428\% for "Construction", 300\% for "Linux issues",  250\% for testing , 225\% for turret rotation and 175\% for design.
+\clearpage
+Here are the most underestimated tasks:
+\begin{figure}[H]
+\center
+\includegraphics{underest.png}
+\caption{Top most underestimated tasks}
+\end{figure}
+
+\section{Update}
+We had some unit tests executing movement of the device and then double checking the angles afterwards. 
+These tests made us realize that we had used different semantics for manipulating angles throughout the project.
+In the abstraction layer of the turret, clockwise rotation meant an increase in angle, allwhile some implementation in the servo class relied on the opposite.
+
+During the third revision of this Quality Plan, we realized through metrics our heavy underestimation of tasks, aswell as how long we had pushed forward the backing up the device.
+Since a backup task had been created but no one really finished it untill very late it got very underestimated and stood out in our metrics.
+Pushing forward and skipping backups has been a real issue since we've had a lot of crashes with our system where we often have to revert spent effort.
+\subsection{Test results}
+\begin{figure}[H]
+\center
+\includegraphics{tests.png}
+\caption{Test results}
+\end{figure}
+
+\begin{thebibliography}{9}
+
+\bibitem{lamport94}
+   \emph{Simultaneous Release}.
+   Eclipse Wiki,
+   \url{http://wiki.eclipse.org/Simultaneous_Release},
+   
+   Availible on: \today
+
+\end{thebibliography}
 
 %\url{http://wiki.eclipse.org/Simultaneous_Release}
 
